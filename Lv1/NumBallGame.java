@@ -5,6 +5,8 @@ package Lv1;//import java.util.List;
 //import java.util.Scanner;
 import java.util.*;
 
+import static sun.security.util.KeyUtil.validate;
+
 public class NumBallGame {
     private List<Integer> answer; //정답 숫자가 담길 정수형 리스트
 
@@ -37,6 +39,26 @@ public class NumBallGame {
         return answer;
     }
 
+    public String guessAnswer() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        //게임 시작
+        System.out.println("[ 숫자 야구 게임을 시작합니다 ]");
+
+        while (true) {
+            System.out.print("숫자를 입력하세요. (조건 : 중복이 없는 세자리 수)");
+            input = sc.next();
+
+            //조건을 만족하면 조건문을 빠져나오고 조건을 만족하지 않으면 알림문구를 띄우고 다시 입력하도록 설정
+            //validate() -> 유효성 검사
+            if(validateInput(input)){
+                break; //입력값이 유효하면 조건문을 빠져나온다.
+            }else{ //입력값이 유효하지 않으면 알림문구가 나오고, 입력을 제대로 해야지 조건문을 빠져나올수있다.
+                System.out.print("올바르지 않은 입력값입니다.");
+            }
+            return input;
+        }
+    }
 
 }
 

@@ -14,7 +14,7 @@ public class NumBallGameDisplay {
             try {
                 System.out.println("1. 게임 시작하기");
                 System.out.println("3. 종료하기");
-                System.out.println("선택한 번호 : ");
+                System.out.print("선택한 번호 : ");
 
                 String select = sc.next();
 
